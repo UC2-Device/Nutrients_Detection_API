@@ -2,11 +2,14 @@ from flask import Flask, request, jsonify
 import requests
 import base64
 import time
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
 # Set your Plant.id API key
-PLANT_ID_API_KEY = "3WlaILOu8TYnLImt2OtnqKfNFPK0ihKDeZGnjy2k1nF6wqu9Fp"
+PLANT_ID_API_KEY = os.getenv("PLANT_ID_API_KEY")
 PLANT_ID_API_URL = "https://plant.id/api/v3/health_assessment"
 
 MAX_RETRIES = 3  # Total attempts
